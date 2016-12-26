@@ -2,6 +2,8 @@ var path = require('path');
 
 var webpack = require('webpack');
 
+
+
 module.exports = {
     entry: path.resolve(__dirname, 'js/index.js'),
     output: {
@@ -15,7 +17,8 @@ module.exports = {
           test: /\.js$/,
           exclude: /(node_modules)/,
           loader: 'babel',
-        },
+        }
+
       ]
     }
 };

@@ -1,0 +1,97 @@
+
+.outtercontainer {
+ border:1px solid black;
+  height: 350px;
+ width: 1000px;
+ margin-bottom:20px;
+ margin-left: auto;
+ margin-right: auto;
+font-size: 30px;
+padding-top: 30px;
+padding-bottom: 30px;
+}
+
+ .innercontainer {
+  border:1px solid black;
+ height:300px;
+ width: 900px;
+ margin-left: auto;
+ margin-right: auto;
+font-size: 12px;
+padding: 10px;
+ }
+
+
+ .itemdiv {
+ border:1px solid black;
+  height: 230px;
+width: 170px;
+float:left;
+margin-left: 5px;
+}
+
+.item-info {
+height: 20px;
+font-size: 12px;
+ word-break: normal;
+}
+
+.item-info a{
+   position: relative;
+width: 140px;
+ }
+
+ .item-price {
+
+   height: 80px;
+ font-size: 12px;
+  word-break: normal;
+ }
+
+.item-price a{
+ position: relative;
+ width: 140px;
+ }
+
+.item-pic {
+ height: 170px;
+ }
+
+
+ .item-pic img{
+    display: block;
+ max-height:170px;
+max-width: 170px;
+ margin-left: auto;
+margin-right: auto;
+ }
+
+
+ .arrow-right {
+  background-color: yellow;
+  font-size: 35px;
+  width: 50px;
+  float: right;
+ position: relative;
+ bottom:113px;
+ }
+
+ .arrow-right i {
+   width: 30px;
+  padding-top: 70px;
+   float:right;
+ }
+
+ .arrow-left {
+     background-color: yellow;
+    width: 50px;
+   font-size: 35px;
+    float: left;
+    position: relative;
+ top:80px; }
+
+
+ .arrow-left i {
+     width: 30px;
+   padding-top: 70px;
+  }
