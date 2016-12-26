@@ -2,8 +2,37 @@
 
 require('isomorphic-fetch');
 
-export var ARROW_RIGHT= 'ARROW_RIGHT';
+export var INITIALIZE_RESULTS= 'INITIALIZE_RESULTS';
 
-export var arrowRight= function(){
+ export var intializeResults= function(){
 
-};
+        return {
+          type:INITIALIZE_RESULTS
+        };
+
+ };
+
+
+ export var ARROW_LEFT= 'ARROW_LEFT';
+
+  export var ArrowLeft= function(id){
+
+         return {
+           type:ARROW_LEFT,
+           id:id
+         };
+
+  };
+
+
+
+   export var ARROW_RIGHT= 'ARROW_RIGHT';
+
+    export var ArrowRight= function(id){
+
+           return {
+             type:ARROW_RIGHT,
+             id:id
+           };
+
+    };

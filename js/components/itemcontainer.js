@@ -12,7 +12,7 @@ var ItemContainer = function(props){
 
   var array=[];
 
-  var slicedContent= props.content.slice(props.contentRange.from, props.contentRange.to);
+  var slicedContent = props.content.slice(props.contentRange.from, props.contentRange.to);
 
   console.log(slicedContent);
 
@@ -31,6 +31,7 @@ var ItemContainer = function(props){
   );
 
 };
+
 
 
 export default ItemContainer;

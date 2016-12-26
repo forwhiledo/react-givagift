@@ -3,40 +3,41 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 import {connect} from 'react-redux';
-
-import OutterContainer from './outtercontainer.js'
-
-var ResultsApp= React.createClass({
+import {intializeResults} from '../actions/index.js'
 
 
+import Container from './outtercontainer.js'
 
-         render:function(){
+export class ResultsApp extends React.Component {
 
-          
-              console.log(this.props.contents);
+            constructor(props){
 
+               super(props);
 
-          var OutterContainerArray=[];
+              this.props.dispatch( intializeResults());
 
-           for(var i=0; i<this.props.contents.length; i++){
+            }
 
-              OutterContainerArray.push(<OutterContainer content={this.props.contents[i]} contentRange={this.props.contents[i].range} />)
+           render(){
 
+           console.log(this.props.contents);
+
+            var OutterContainerArray=[];
+
+             for(var i=0; i<this.props.contents.length; i++){
+
+            OutterContainerArray.push( <Container  id= {i} content={this.props.contents[i]} contentRange={this.props.contents[i].range} />)
+
+             }
+             return (
+               <div>
+                   {OutterContainerArray}
+                </div>
+
+             );
            }
+}
 
-  console.log(this.props.content1);
-
-           return (
-
-             <div>
-                 {OutterContainerArray}
-              </div>
-
-
-
-           );
-         }
-});
 
 
 

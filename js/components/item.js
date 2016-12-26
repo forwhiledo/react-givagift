@@ -9,9 +9,7 @@ var ItemPic= function(props){
   return(
 
 <div className='item-pic'>
-
-   <img src={props.content.picLink}/>
-
+  <a href={props.content.buyLink}> <img src={props.content.picLink}/></a>
 </div>
 
   );
@@ -52,7 +50,10 @@ var Item= function(props){
 
       <div className='itemdiv'>
 
-          <ItemPic content={props.content}/>
+            <a href={props.content.buyLink}>
+              <ItemPic content={props.content}/>
+              </a>
+
 
           <ItemName content={props.content}/>
 
