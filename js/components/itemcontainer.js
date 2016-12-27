@@ -1,24 +1,25 @@
 
 var React = require('react');
 var ReactDOM = require('react-dom');
-import Item from './item.js'
+import Itemdiv from './item.js'
 import resultsArray from '../results.js'
+import {connect} from 'react-redux'
 
 
 
 
 var ItemContainer = function(props){
-      console.log(props.contentRange.from);
+
 
   var array=[];
 
-  var slicedContent = props.content.slice(props.contentRange.from, props.contentRange.to);
+  var slicedContent = props.contents[props.id].slice(props.contents[props.id].range.from, props.contents[props.id].range.to);
 
   console.log(slicedContent);
 
   for( var i=0; i< slicedContent.length ; i++){
 
-    array.push( <Item content={slicedContent[i]}/> )
+    array.push( <Itemdiv  itemid={i} id={props.id}/> )
 
   }
 
@@ -33,5 +34,16 @@ var ItemContainer = function(props){
 };
 
 
+var mapStateToProps= function(state){
 
-export default ItemContainer;
+  console.log(state);
+return {
+  contents: state.contents
+}
+
+}
+
+
+var ItemContainerContainer= connect(mapStateToProps)(ItemContainer)
+
+export default ItemContainerContainer;

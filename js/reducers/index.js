@@ -1,14 +1,24 @@
 var actions = require('../actions/index');
 var resultsArray = require('../results.js');
+var questionsArray =  require('../questions.js');
+import {INITIALIZE_RESULTS, ARROW_RIGHT, NEXT_QUESTION} from '../actions/index'
 
-
+console.log(questionsArray);
 var stateDefault = {
-    contents: resultsArray
+    contents: resultsArray,
+    currentQuestionIndex:0,
+    currentQuestion:questionsArray[0],
+    questions: questionsArray
+    
 };
+
+
 
 var reducer = function(state, action) {
 
     state = state || stateDefault;
+
+
 
     switch (action.type) {
 
@@ -27,7 +37,6 @@ var reducer = function(state, action) {
             }
             break;
 
-
         case actions.ARROW_RIGHT:
 
             var range = state.contents[action.id].range;
@@ -38,12 +47,16 @@ var reducer = function(state, action) {
                 to: range.to+5
 
             };
+              break;
 
-            
-    }
+          case actions.NEXT_QUESTION:
 
-    return {...state
-    };
+        state.currentQuestion= questionsArray[action.currentQuestionIndex+1];
+        state.currentQuestionIndex= action.currentQuestionIndex+1;
+          break;
+      }
+
+    return {...state};
 
 };
 

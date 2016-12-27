@@ -95,3 +95,25 @@ margin-right: auto;
      width: 30px;
    padding-top: 70px;
   }
+
+.outterbox {
+    height: 700px;
+    width: 700px;
+    border: 1px solid black;
+    margin-left: auto;
+   margin-right: auto;
+    margin-bottom: 100px;
+}
+
+.question {
+    font-size: 30px;
+
+}
+.answer-list {
+  font-size: 30px;
+   border: 1px solid black;
+   border-radius: 5px;
+   width: 600px;
+   margin-left: auto;
+  margin-right: auto;
+}

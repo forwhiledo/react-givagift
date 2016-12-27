@@ -1,13 +1,13 @@
 
 var React = require('react');
 var ReactDOM = require('react-dom');
-
+import {connect} from 'react-redux';
 
 var ItemPic= function(props){
 
-  console.log(props.content);
-  return(
+    console.log(props);
 
+  return(
 <div className='item-pic'>
   <a href={props.content.buyLink}> <img src={props.content.picLink}/></a>
 </div>
@@ -44,30 +44,35 @@ var ItemPrice= function(props){
 
 
 var Item= function(props){
-    console.log(props.content);
+
+
+    var item_content= props.contents[props.id][props.itemid]
 
     return(
 
       <div className='itemdiv'>
 
-            <a href={props.content.buyLink}>
-              <ItemPic content={props.content}/>
+            <a href={ item_content.buyLink}>
+              <ItemPic content={ item_content }/>
               </a>
 
+          <ItemName content={ item_content }/>
 
-          <ItemName content={props.content}/>
-
-          <ItemPrice content={props.content}/>
+          <ItemPrice content={ item_content }/>
 
       </div>
     );
-
 };
 
+var mapStateToProps= function(state){
+
+  return {
+  contents:state.contents
+  }
+
+}
+
+var Itemdiv= connect(mapStateToProps)(Item);
 
 
-
-
-
-
-export default Item;
+export default Itemdiv;

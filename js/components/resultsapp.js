@@ -31,6 +31,7 @@ export class ResultsApp extends React.Component {
              }
              return (
                <div>
+
                    {OutterContainerArray}
                 </div>
 
@@ -43,7 +44,7 @@ export class ResultsApp extends React.Component {
 
 var mapStateToProps= function(state){
 
-  console.log(state);
+console.log(state);
 
 return {
   contents:state.contents

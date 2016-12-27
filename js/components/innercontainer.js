@@ -2,19 +2,42 @@
 
 var React = require('react');
 var ReactDOM = require('react-dom');
-import ItemContainer from './itemcontainer.js'
+import ItemContainerContainer from './itemcontainer.js'
+import {connect} from 'react-redux';
 
-var InnerContainer = function(props){
 
-  return(
+export class InnerContainerDiv extends React.Component {
+
+
+  render(){
+
+    return (
+
       <div  className='innercontainer'>
-         <p> from {props.contentRange.from} to {props.contentRange.to}  </p>
-       <ItemContainer content={props.content} contentRange={props.contentRange}/>
+
+         <p> from {this.props.contents[this.props.id].range.from} to {this.props.contents[this.props.id].range.to}  </p>
+
+       <ItemContainerContainer id={this.props.id}/>
+
     </div>
+
   );
 };
 
+}
 
 
+var mapStateToProps= function(state){
+
+  console.log(state);
+
+return {
+  contents:state.contents
+}
+
+}
+
+
+var InnerContainer= connect(mapStateToProps)(InnerContainerDiv);
 
 export default InnerContainer;

@@ -36,3 +36,14 @@ export var INITIALIZE_RESULTS= 'INITIALIZE_RESULTS';
            };
 
     };
+
+    export var NEXT_QUESTION= 'NEXT_QUESTION';
+
+     export var NextQuestion= function(currentQuestionIndex){
+
+            return {
+              type:NEXT_QUESTION,
+               currentQuestionIndex:currentQuestionIndex
+            };
+
+     };

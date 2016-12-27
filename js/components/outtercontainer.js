@@ -39,7 +39,7 @@ import {connect} from 'react-redux';
 
           <i className="fa fa-chevron-left arrow-left" aria-hidden="true" onClick = {this.leftClick} ></i>
 
-          <InnerContainer content={this.props.content} contentRange={this.props.contentRange}/>
+          <InnerContainer id={this.props.id}/>
 
             <i className="fa fa-chevron-right arrow-right" aria-hidden="true" onClick = {this.rightClick} ></i>
 
