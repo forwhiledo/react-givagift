@@ -20,7 +20,7 @@ export class ResultsApp extends React.Component {
 
            render(){
 
-           console.log(this.props.contents);
+          
 
             var OutterContainerArray=[];
 
@@ -33,6 +33,7 @@ export class ResultsApp extends React.Component {
                <div>
 
                    {OutterContainerArray}
+
                 </div>
 
              );

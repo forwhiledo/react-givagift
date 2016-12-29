@@ -19,19 +19,21 @@ import {connect} from 'react-redux';
 
       leftClick(){
 
+
         this.props.dispatch(ArrowLeft(this.props.id));
 
       }
 
       rightClick(){
 
-          console.log(this.props.id);
+
           this.props.dispatch(ArrowRight(this.props.id));
 
       }
 
       render(){
-  console.log(this);
+
+
 
         return (
 
@@ -48,6 +50,15 @@ import {connect} from 'react-redux';
       }
  }
 
-var Container= connect()(OutterContainer);
+
+var mapStateToProps= function(state){
+   
+  return {
+    contents:state.contents
+  }
+
+}
+
+var Container= connect(mapStateToProps)(OutterContainer);
 
 export default Container;

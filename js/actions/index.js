@@ -21,7 +21,6 @@ export var INITIALIZE_RESULTS= 'INITIALIZE_RESULTS';
            type:ARROW_LEFT,
            id:id
          };
-
   };
 
 

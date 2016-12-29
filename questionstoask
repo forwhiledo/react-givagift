@@ -11,3 +11,9 @@
 
 
 //https://github.com/facebookincubator/create-react-app
+
+
+
+// where to implement Jquery ? at index.JS? 
+ // what to do when the components dont re-render
+// How to change css through react/redux methods

@@ -9,7 +9,7 @@ var stateDefault = {
     currentQuestionIndex:0,
     currentQuestion:questionsArray[0],
     questions: questionsArray
-    
+
 };
 
 
@@ -40,24 +40,74 @@ var reducer = function(state, action) {
         case actions.ARROW_RIGHT:
 
             var range = state.contents[action.id].range;
+               var slicedContent= state.contents[action.id].slice(state.contents[action.id].range.from+5, state.contents[action.id].range.to+5);
+                var remainer= 5-slicedContent.length;
 
-            state.contents[action.id].range = {
+                console.log('here is remainer'+ remainer);
 
-                from: range.to,
-                to: range.to+5
+                if(remainer==5){
+                  state.contents[action.id].range = {
+                      from: 0,
+                      to: 5
+                  };
+                }
+                else{
 
-            };
+                  state.contents[action.id].range = {
+                      from: range.to,
+                      to: range.to+5-remainer
+                  };
+
+                }
+
+             state.contents = state.contents.slice(0)
+
               break;
 
-          case actions.NEXT_QUESTION:
+              case actions.ARROW_LEFT:
 
-        state.currentQuestion= questionsArray[action.currentQuestionIndex+1];
-        state.currentQuestionIndex= action.currentQuestionIndex+1;
-          break;
-      }
 
-    return {...state};
 
+                  var range = state.contents[action.id].range;
+                  var slicedLeft= state.contents[action.id].slice(state.contents[action.id].range.from-5, state.contents[action.id].range.to-5);
+                  console.log('here is slicedleftuuyy' +slicedLeft.length);
+
+                  if (slicedLeft.length===0){
+
+                      console.log('ITS ZEROpps');
+
+                    state.contents[action.id].range = {
+                        from: state.contents[action.id].length-(state.contents[action.id].length%5),
+                        to: state.contents[action.id].length
+                    };
+                  } else {
+
+                    state.contents[action.id].range = {
+                        from: range.from-5,
+                        to: range.from
+                    };
+
+                  }
+
+
+
+
+                   state.contents = state.contents.slice(0)
+
+                    break;
+
+
+
+            case actions.NEXT_QUESTION:
+
+          state.currentQuestion= questionsArray[action.currentQuestionIndex+1];
+          state.currentQuestionIndex= action.currentQuestionIndex+1;
+
+            break;
+        }
+
+      // return Object.assign({}, state, {contents:state.contents.slice(0)});
+      return {...state}
 };
 
 

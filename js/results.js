@@ -112,6 +112,46 @@ var resultsArray= [
          "LowestNewItemPrice":"$12.94",
          "imageName":"9",
          "pageName":"item2"
+      },
+
+      {
+         "picLink":"http://ecx.images-amazon.com/images/I/41SlOWvLt8L._SL160_.jpg",
+         "buyLink":"https://www.amazon.com/Star-Wars-Awakens-Figurine-Playset/dp/B015AM8P3Q%3FSubscriptionId%3DAKIAIFAXTMOZPQMH7NKA%26tag%3Dbuy05cb-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB015AM8P3Q",
+         "titleOfItem":"Star Wars The Force Awakens Figurine Playset 6 Piece Set",
+         "LowestItemPrice":null,
+         "LowestNewItemPrice":"$10.25",
+         "imageName":"0",
+         "pageName":"item1"
+      },
+
+      {
+         "picLink":"http://ecx.images-amazon.com/images/I/514pGN3CYYL._SL160_.jpg",
+         "buyLink":"https://www.amazon.com/Star-Wars-Force-Awakens-Features/dp/B019EG1TC8%3FSubscriptionId%3DAKIAIFAXTMOZPQMH7NKA%26tag%3Dbuy05cb-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB019EG1TC8",
+         "titleOfItem":"Star Wars: The Force Awakens (Plus Bonus Features)",
+         "LowestItemPrice":null,
+         "LowestNewItemPrice":"$19.99",
+         "imageName":"1",
+         "pageName":"item1"
+      },
+
+      {
+         "picLink":"http://ecx.images-amazon.com/images/I/41SlOWvLt8L._SL160_.jpg",
+         "buyLink":"https://www.amazon.com/Star-Wars-Awakens-Figurine-Playset/dp/B015AM8P3Q%3FSubscriptionId%3DAKIAIFAXTMOZPQMH7NKA%26tag%3Dbuy05cb-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB015AM8P3Q",
+         "titleOfItem":"Star Wars The Force Awakens Figurine Playset 6 Piece Set",
+         "LowestItemPrice":null,
+         "LowestNewItemPrice":"$10.25",
+         "imageName":"0",
+         "pageName":"item1"
+      },
+
+      {
+         "picLink":"http://ecx.images-amazon.com/images/I/514pGN3CYYL._SL160_.jpg",
+         "buyLink":"https://www.amazon.com/Star-Wars-Force-Awakens-Features/dp/B019EG1TC8%3FSubscriptionId%3DAKIAIFAXTMOZPQMH7NKA%26tag%3Dbuy05cb-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB019EG1TC8",
+         "titleOfItem":"Star Wars: The Force Awakens (Plus Bonus Features)",
+         "LowestItemPrice":null,
+         "LowestNewItemPrice":"$19.99",
+         "imageName":"1",
+         "pageName":"item1"
       }
    ],
 

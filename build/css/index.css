@@ -11,6 +11,10 @@ padding-top: 30px;
 padding-bottom: 30px;
 }
 
+body {
+  background-color:#f4f2fc;
+}
+
  .innercontainer {
   border:1px solid black;
  height:300px;

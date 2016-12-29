@@ -8,14 +8,20 @@ import {connect} from 'react-redux';
 export class Answer extends React.Component {
   constructor(props){
     super(props);
-
+      this.selectedAnswer= this.selectedAnswer.bind(this);
   }
+
+  selectedAnswer(){
+      console.log('answer number was'+ this.props.answerId +'from question'+ this.props.questionId);
+       
+  }
+
 
   render(){
 
     return(
       <div className='answersbox'>
-       <li className='answer-list'> {this.props.letter} . {this.props.answer}</li>
+       <li className='answer-list' onClick={this.selectedAnswer} > {this.props.letter} . {this.props.answer}</li>
        </div>
     )
   }

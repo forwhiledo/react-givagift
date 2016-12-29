@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 
 var ItemPic= function(props){
 
-    console.log(props);
+    
 
   return(
 <div className='item-pic'>
@@ -46,7 +46,7 @@ var ItemPrice= function(props){
 var Item= function(props){
 
 
-    var item_content= props.contents[props.id][props.itemid]
+    var item_content= props.content
 
     return(
 

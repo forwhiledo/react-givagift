@@ -11,6 +11,8 @@ export class InnerContainerDiv extends React.Component {
 
   render(){
 
+
+
     return (
 
       <div  className='innercontainer'>
@@ -29,7 +31,7 @@ export class InnerContainerDiv extends React.Component {
 
 var mapStateToProps= function(state){
 
-  console.log(state);
+
 
 return {
   contents:state.contents
