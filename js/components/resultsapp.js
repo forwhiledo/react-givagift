@@ -4,7 +4,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 import {connect} from 'react-redux';
 import {intializeResults} from '../actions/index.js'
-
+import cssStyle from '../css-variables.js'
 
 import Container from './outtercontainer.js'
 
@@ -20,7 +20,7 @@ export class ResultsApp extends React.Component {
 
            render(){
 
-          
+
 
             var OutterContainerArray=[];
 
@@ -30,7 +30,7 @@ export class ResultsApp extends React.Component {
 
              }
              return (
-               <div>
+               <div style={{backgroundColor:cssStyle.dark_white, paddingTop:'40px'}}>
 
                    {OutterContainerArray}
 

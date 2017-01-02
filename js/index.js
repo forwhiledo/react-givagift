@@ -17,17 +17,23 @@ import MainApp from './components/mainapp.js';
 import App from './components/app.js'
 import ResultsAppContainer from './components/resultsapp.js'
 import QuizApp from './components/quizapp.js'
-
-console.log('hello');
+import SignupLogin from './components/signup-login.js'
+import SignUp from './components/sign-up.js'
+import UserDashboardContainer from './components/userdashboard.js'
+import UserSideBarContainer from './components/usersidebar.js'
+console.log('test17');
 
 var routes = (
     <Router history={hashHistory}>
        <Route path="/" component={App}>
+
            <IndexRoute component={MainApp} />
             <Route path="/results" component={ResultsAppContainer} />
             <Route path="/quiz" component={QuizApp} />
-
-       </Route>
+            <Route path="/signup-login" component={SignupLogin}/>
+            <Route path="/signup" component={SignUp}/>
+            <Route path="/userdashboard" component={UserDashboardContainer}/>
+           </Route>
    </Router>
 );
 

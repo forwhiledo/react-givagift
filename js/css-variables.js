@@ -1,9 +1,11 @@
 
 
 var cssStyle = {
-
+  dark_grey:"#333333",
   light_black: "#262626",
   white: "#f4f2fc",
+  dark_white:"#D8D8DA",
+  white_blue:"#bccaca",
   green: "#4CAF50",
   pink: "#FF6D6D",
   orange:"#ff7733",
@@ -22,7 +24,13 @@ var cssStyle = {
   centralize:{
     marginLeft: "auto",
   marginRight:" auto"
-  }
+},
+   alert:{
+     backgroundColor:"#FF6D6D",
+     borderRadius:'2px', width:'500px',
+     marginLeft:'auto', marginRight:'auto'
+   }
+
 
 };
 

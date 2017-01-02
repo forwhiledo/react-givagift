@@ -245,7 +245,25 @@ var resultsArray= [
          "LowestNewItemPrice":"$479.99",
          "imageName":"9",
          "pageName":"item3"
-      }
+      },
+{
+         "picLink":"http://ecx.images-amazon.com/images/I/51bcoyUhg%2BL._SL160_.jpg",
+         "buyLink":"https://www.amazon.com/Bananagrams-BAN001/dp/1932188126%3Fpsc%3D1%26SubscriptionId%3DAKIAIFAXTMOZPQMH7NKA%26tag%3Dbuy05cb-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1932188126",
+         "titleOfItem":"Bananagrams",
+         "LowestItemPrice":null,
+         "LowestNewItemPrice":"$12.99",
+         "imageName":"5",
+         "pageName":"item2"
+      },
+{
+         "picLink":"http://ecx.images-amazon.com/images/I/51bcoyUhg%2BL._SL160_.jpg",
+         "buyLink":"https://www.amazon.com/Bananagrams-BAN001/dp/1932188126%3Fpsc%3D1%26SubscriptionId%3DAKIAIFAXTMOZPQMH7NKA%26tag%3Dbuy05cb-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1932188126",
+         "titleOfItem":"Bananagrams",
+         "LowestItemPrice":null,
+         "LowestNewItemPrice":"$12.99",
+         "imageName":"5",
+         "pageName":"item2"
+      },
    ]
 ];
 

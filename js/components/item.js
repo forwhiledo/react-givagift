@@ -2,10 +2,11 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 import {connect} from 'react-redux';
+import cssStyle from '../css-variables.js'
 
 var ItemPic= function(props){
 
-    
+
 
   return(
 <div className='item-pic'>
@@ -50,7 +51,7 @@ var Item= function(props){
 
     return(
 
-      <div className='itemdiv'>
+      <div style={{backgroundColor:cssStyle.white, border:' 4px solid #bccaca', padding:'5px'}} className='itemdiv'>
 
             <a href={ item_content.buyLink}>
               <ItemPic content={ item_content }/>

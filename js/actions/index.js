@@ -1,4 +1,5 @@
 
+import { push } from 'react-router-redux';
 
 require('isomorphic-fetch');
 
@@ -46,3 +47,64 @@ export var INITIALIZE_RESULTS= 'INITIALIZE_RESULTS';
             };
 
      };
+
+
+
+       export var LOG_IN='LOG_IN';
+
+       export function LogInUser(data) {
+
+   var fetchData={
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json'
+      },
+      body:JSON.stringify({
+
+         username:data.username,
+         password:data.password
+
+      })
+   };
+
+  return {
+    type: LOG_IN,
+
+    promise: fetch('/login', fetchData).then(function(data){
+
+       console.log(data);
+       return data.json();
+
+      })
+  };
+}
+
+
+ export var SIGN_UP_USER='SIGN_UP_USER';
+
+
+export function SignUpUser(data) {
+
+var fetchData={
+method:'POST',
+headers:{
+ 'Content-Type':'application/json'
+},
+body:JSON.stringify({
+
+  username:data.username,
+  password:data.password
+
+})
+};
+
+return {
+type: SIGN_UP_USER,
+promise: fetch('/users', fetchData).then(function(data){
+
+console.log(data);
+return data.json();
+
+})
+};
+}

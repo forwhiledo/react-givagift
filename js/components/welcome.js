@@ -1,8 +1,12 @@
 
 var React = require('react');
 var ReactDOM = require('react-dom');
-
+var router = require('react-router');
+var Router = router.Router;
+var Route = router.Route;
+var hashHistory = router.hashHistory;
 import cssStyle from '../css-variables.js';
+var Link = router.Link;
 
 
 var Welcome= function(){
@@ -55,10 +59,9 @@ console.log(cssStyle.centralize);
         <h2 style={h2Style}> Helping you find that gift for that birthday that is coming very soon!</h2>
 
         <div style={buttonDiv}>
-           <a ></a>
-           
+             <Link to={'/signup-login'}>
           <button style={buttonStyle}> ENTER </button>
-
+              </Link>
         </div>
 
   </div>

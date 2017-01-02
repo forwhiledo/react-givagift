@@ -1,15 +1,20 @@
 var actions = require('../actions/index');
 var resultsArray = require('../results.js');
 var questionsArray =  require('../questions.js');
-import {INITIALIZE_RESULTS, ARROW_RIGHT, NEXT_QUESTION} from '../actions/index'
+import {INITIALIZE_RESULTS, ARROW_RIGHT, NEXT_QUESTION, LOG_IN} from '../actions/index';
+import {handle} from 'redux-pack';
+import cssStyle from '../css-variables.js'
+
 
 console.log(questionsArray);
 var stateDefault = {
+
     contents: resultsArray,
     currentQuestionIndex:0,
     currentQuestion:questionsArray[0],
-    questions: questionsArray
-
+    questions: questionsArray,
+    styles:cssStyle,
+    userImageURL:'http://www.safe-collections.com/images/PNG%20Icons/user148.png'
 };
 
 
@@ -18,9 +23,25 @@ var reducer = function(state, action) {
 
     state = state || stateDefault;
 
-
-
     switch (action.type) {
+
+      case LOG_IN:
+      return handle(state, action, {
+
+        start: s => ({
+               ...s,
+               isLoading: true,
+               fooError: null
+             }),
+        finish: s => ({ ...s, isLoading: false }),
+        failure: s => ({ ...s, userError: action.payload }),
+        success: s => ({ ...s, user: action.payload }),
+
+      });
+
+
+
+
 
         case actions.INITIALIZE_RESULTS:
 
@@ -28,12 +49,22 @@ var reducer = function(state, action) {
 
                 state.contents[i] = resultsArray[i];
 
-                state.contents[i].range = {
+                  console.log( 'staaate',state.contents[i]);
+                if(state.contents[i].length< 5){
 
-                    from: 0,
-                    to: 5
+                  state.contents[i].range = {
+                      from: 0,
+                      to: state.contents[i].length
+                  };
+                }
 
-                };
+                else {
+
+                  state.contents[i].range = {
+                      from: 0,
+                      to: 5
+                  };
+                }
             }
             break;
 
@@ -43,12 +74,15 @@ var reducer = function(state, action) {
                var slicedContent= state.contents[action.id].slice(state.contents[action.id].range.from+5, state.contents[action.id].range.to+5);
                 var remainer= 5-slicedContent.length;
 
-                console.log('here is remainer'+ remainer);
 
-                if(remainer==5){
+                console.log('here is remaindeeeeeer'+ remainer);
+                if(state.contents[action.id].length < 5){
+                  return
+                }
+                else if(remainer==5){
                   state.contents[action.id].range = {
-                      from: 0,
-                      to: 5
+                      from:0,
+                      to: remainer
                   };
                 }
                 else{
@@ -70,16 +104,28 @@ var reducer = function(state, action) {
 
                   var range = state.contents[action.id].range;
                   var slicedLeft= state.contents[action.id].slice(state.contents[action.id].range.from-5, state.contents[action.id].range.to-5);
-                  console.log('here is slicedleftuuyy' +slicedLeft.length);
 
                   if (slicedLeft.length===0){
 
-                      console.log('ITS ZEROpps');
+                      if(state.contents[action.id].length%5===0){
 
-                    state.contents[action.id].range = {
-                        from: state.contents[action.id].length-(state.contents[action.id].length%5),
-                        to: state.contents[action.id].length
-                    };
+                        state.contents[action.id].range = {
+                            from: state.contents[action.id].length-5,
+                            to: state.contents[action.id].length
+                          };
+                      }
+                      else {
+
+                        state.contents[action.id].range = {
+                            from: state.contents[action.id].length-(state.contents[action.id].length%5),
+                            to: state.contents[action.id].length
+                              };
+
+                      }
+
+
+
+
                   } else {
 
                     state.contents[action.id].range = {
@@ -88,9 +134,6 @@ var reducer = function(state, action) {
                     };
 
                   }
-
-
-
 
                    state.contents = state.contents.slice(0)
 

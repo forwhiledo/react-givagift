@@ -5,6 +5,7 @@ var ReactDOM = require('react-dom');
 import InnerContainer from './innercontainer.js';
 import {ArrowLeft, ArrowRight, initializeResults} from '../actions/index.js'
 import {connect} from 'react-redux';
+import cssStyle from '../css-variables.js'
 
  export class OutterContainer extends React.Component{
 
@@ -37,13 +38,17 @@ import {connect} from 'react-redux';
 
         return (
 
-          <div className='outtercontainer'>
+          <div style={{backgroundColor:cssStyle.light_black, borderRadius:'4px'}} className='outtercontainer'>
 
-          <i className="fa fa-chevron-left arrow-left" aria-hidden="true" onClick = {this.leftClick} ></i>
+          <div style={{height:'350px', width:'50px', float:'left'}}>
+            <i  style={{color:cssStyle.white ,float:'left', marginTop:'150px', marginLeft:'10px'}} className="fa fa-chevron-left" aria-hidden="true" onClick = {this.leftClick} ></i>
+            </div>
 
           <InnerContainer id={this.props.id}/>
 
-            <i className="fa fa-chevron-right arrow-right" aria-hidden="true" onClick = {this.rightClick} ></i>
+            <div style={{height:'350px', width:'50px',  float:'right'}}>
+              <i style={{color:cssStyle.white, float:'right', marginTop:'150px', marginRight:'10px'}} className="fa fa-chevron-right" aria-hidden="true" onClick = {this.rightClick} ></i>
+            </div>
 
           </div>
         );
@@ -52,7 +57,7 @@ import {connect} from 'react-redux';
 
 
 var mapStateToProps= function(state){
-   
+
   return {
     contents:state.contents
   }

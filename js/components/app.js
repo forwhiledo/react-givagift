@@ -1,18 +1,25 @@
 var React = require('react');
  import cssStyle from '../css-variables.js';
 var orange='#ff7733';
+
+
 var App = function(props) {
+
+    console.log(props);
 
    var headingStyle={
    maxWidth: "100%",
    height: "90px",
-   backgroundColor:orange
+   backgroundColor:orange,
+   paddingTop:'10px'
    };
 
    var h1Style={
    fontFamily:cssStyle.baloo,
    fontSize: "25px",
-   marginLeft:"10px"
+   marginLeft:"10px",
+   height:'40px',
+   marginTop:'0px'
    };
 
    var h1White={
@@ -23,9 +30,10 @@ var App = function(props) {
 
    var menuDiv={
        backgroundColor:'#333333',
-       height:'70px',
+       height:'60px',
         paddingTop:'10px',
         maxWidth: "100%",
+
    };
 
     return (

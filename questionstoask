@@ -14,6 +14,16 @@
 
 
 
-// where to implement Jquery ? at index.JS? 
+// where to implement Jquery ? at index.JS?
  // what to do when the components dont re-render
 // How to change css through react/redux methods
+
+
+// how to redirect to another page as a response
+// using bootstrap components
+//  how to change styles inside the component
+
+// how to have mukltiple fixed UI inside a component that has a fixed parent
+// how to style multiple by selecting just the element within the component?
+// What is styling best practice with React.
+// how to use amazon API
