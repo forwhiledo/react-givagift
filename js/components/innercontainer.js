@@ -10,20 +10,10 @@ import { ButtonGroup } from 'react-bootstrap'
 import cssStyle from '../css-variables.js'
 
 
-var buttonGroupInstance= function(){
 
-  return (
-    <ButtonToolbar>
-     <ButtonGroup>
-       <Button>1</Button>
-       <Button>2</Button>
-       <Button>3</Button>
-       <Button>4</Button>
-       </ButtonGroup>
-       </ButtonToolbar>
 
-  );
-};
+
+
 
 export class InnerContainerDiv extends React.Component {
 
@@ -36,7 +26,7 @@ export class InnerContainerDiv extends React.Component {
 
         <ItemContainerContainer id={this.props.id}/>
 
-       <buttonGroupInstance/>
+      
 
      </div>
 

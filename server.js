@@ -24,6 +24,31 @@ var passport = require('passport');
 
 var LocalStrategy = require('passport-local').Strategy;
 
+var amazon = require('amazon-product-api');
+
+
+var client = amazon.createClient({
+  awsId: "AKIAIFAXTMOZPQMH7NKA",
+  awsSecret: "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",
+  awsTag: "yosuke-assignment-20"
+});
+
+
+app.get('/amazon/:index', function(req, res){
+          console.log(req.params.index);
+  client.itemSearch({
+   keywords: req.params.index,
+   searchIndex: 'All'
+  //  responseGroup: 'ItemAttributes,Offers,Images'
+}, function(err, data){
+      console.log(data[0].ItemAttributes[0]);
+       res.json(data);
+ });
+});
+
+
+
+
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
@@ -174,7 +199,7 @@ passport.deserializeUser(function(id, done) {
 
 app.post('/login',
   passport.authenticate('local'),function(req, res){
-    
+
      res.json(req.user);
   });
 

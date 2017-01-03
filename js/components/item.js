@@ -51,7 +51,7 @@ var Item= function(props){
 
     return(
 
-      <div style={{backgroundColor:cssStyle.white, border:' 4px solid #bccaca', padding:'5px'}} className='itemdiv'>
+      <div style={{backgroundColor:'white', border:' 4px solid white', padding:'5px', borderRadius:'4px'}} className='itemdiv'>
 
             <a href={ item_content.buyLink}>
               <ItemPic content={ item_content }/>

@@ -41,12 +41,12 @@ export class UserContent extends React.Component{
 
     return (
 
-      <div style={{backgroundColor:cssStyle.light_black , height:'1000px', marginLeft:'220px' }}>
+      <div style={{backgroundColor:cssStyle.light_black , height:'800px', marginLeft:'220px' }}>
          <div style={{ paddingTop:'20px', width:'1100px', height:'800px', marginLeft:'auto', marginRight:'auto', backgroundColor:cssStyle.light_black, overflow:'scroll'}} >
         <h1 style={{textAlign:'center', marginTop:'0px', marginBottom:'20px', fontSize:'18px', color:'white'}}>Welcome {this.props.user.username} !</h1>
        <img style={{margin:'10px', width:'140px', display:'block',borderRadius:'50%', border:'2px solid white',  marginLeft:'auto', marginRight:'auto'}} src={this.props.userImageURL} />
 
-       <Link to='/quiz' >
+       <Link to='/quizinfo' >
          <button style={buttonStyle} >Create New Quiz!</button>
          </Link>
           </div>

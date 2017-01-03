@@ -25,9 +25,9 @@ export class AnswersBox extends React.Component {
 
     return(
       <div className='answersbox'>
-       <ul>
+       <ul style={{padding:'0'}}>
          {AnswerList}
-         </ul>
+      </ul>
        </div>
     )
   }

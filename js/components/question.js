@@ -10,7 +10,7 @@ var Question= function(props){
   return(
        <div className='question'>
 
-          <p>{props.currentQuestion.questionVerbal} ?</p>
+          <p style={{textAlign:'center'}}>{props.currentQuestion.questionVerbal} ?</p>
 
         </div>
 
