@@ -6,8 +6,15 @@ import QuestionContainer from './question.js';
 import AnswersBoxContainer from './answersbox.js'
 import {connect} from 'react-redux';
 import {NextQuestion, CallAmazon, CallAmazonCalls} from '../actions/index.js'
- import cssStyle from '../css-variables.js';
-    var callArray=[];
+import cssStyle from '../css-variables.js';
+import {push} from 'react-router-redux'
+import {hashHistory} from 'react-router'
+
+var results=['lifx','starwars','bananas'];
+var callArray=[];
+var ItemInfo;
+var ItemsArray;
+
 export class Outterbox extends React.Component {
 
         constructor(props){
@@ -21,16 +28,61 @@ export class Outterbox extends React.Component {
 
               if(this.props.currentQuestionIndex+1==this.props.questions.length){
 
-                for(var i=0; i<3; i++){
-                var dis=this;
-                  this.props.dispatch(CallAmazon('bananas')).then(function(){
+                      console.log(results.length);
+                for(var i=0; i<results.length; i++){
 
-                          callArray.push(dis.props.questions);
+                var dis=this;
+
+                                                  //1-3
+                  this.props.dispatch(CallAmazon(results[i])).then(function(){
+
+                        console.log(dis.props.amazonData.length);
+                               ItemsArray=[];
+                                                 //10
+                         for(i=0; i<dis.props.amazonData.length; i++){
+
+                            var price;
+
+                                 if( typeof dis.props.amazonData[i].OfferSummary[0].LowestNewPrice == 'undefined') {
+
+                                  console.log(dis.props.amazonData[i].OfferSummary[0].LowestUsedPrice[0].FormattedPrice[0]);
+                                console.log( 'its undefined');
+
+                                  price=dis.props.amazonData[i].OfferSummary[0].LowestUsedPrice[0].FormattedPrice[0];
+
+                                } else {
+
+                                  price= dis.props.amazonData[i].OfferSummary[0].LowestNewPrice[0].FormattedPrice[0];
+                                  console.log('it has');
+                                    console.log(price);
+                                }
+
+
+                             ItemInfo={
+                              "LowestNewItemPrice":price,
+                              "titleOfItem":dis.props.amazonData[i].ItemAttributes[0].Title[0],
+                              "picLink":dis.props.amazonData[i].LargeImage[0].URL[0],
+                              "buyLink":dis.props.amazonData[i].DetailPageURL[0],
+                            };
+
+                             ItemsArray.push(ItemInfo);
+
+                         }
+
+                            console.log(ItemInfo);
+                            console.log(ItemsArray);
+                          console.log(dis.props);
+
+                          callArray.push(ItemsArray);
                           console.log(callArray);
 
                   }).then(function(){
 
                     dis.props.dispatch(CallAmazonCalls(callArray));
+
+                  }).then(function(){
+                    console.log('redirecting to results!');
+                      hashHistory.push('/results');
                   });
                 } //end of for
 
@@ -144,7 +196,9 @@ var mapStateToProps= function(state){
   console.log(state);
    return {
       currentQuestionIndex:state.currentQuestionIndex,
-      questions:state.questions
+    amazonData:state.amazonData,
+    questions:state.questions
+
    }
 }
 

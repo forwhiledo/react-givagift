@@ -10,6 +10,8 @@ import {connect} from 'react-redux'
 
 var ItemContainer = function(props){
 
+        console.log(props.contents);
+        console.log(props.callArray);
 
   var array=[];
 
@@ -37,7 +39,8 @@ var mapStateToProps= function(state){
 
 
 return {
-  contents: state.contents
+  contents: state.contents,
+  callArray:state.callArray
 }
 }
 

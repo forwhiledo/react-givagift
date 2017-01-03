@@ -38,8 +38,8 @@ app.get('/amazon/:index', function(req, res){
           console.log(req.params.index);
   client.itemSearch({
    keywords: req.params.index,
-   searchIndex: 'All'
-  //  responseGroup: 'ItemAttributes,Offers,Images'
+   searchIndex: 'All',
+   responseGroup: 'ItemAttributes,Offers,Images'
 }, function(err, data){
 
       console.log(data);

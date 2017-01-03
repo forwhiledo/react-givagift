@@ -46,7 +46,7 @@ var ItemPrice= function(props){
 
 var Item= function(props){
 
-
+    
     var item_content= props.content
 
     return(
@@ -68,7 +68,8 @@ var Item= function(props){
 var mapStateToProps= function(state){
 
   return {
-  contents:state.contents
+  contents:state.contents,
+  callArray:state.callArray
   }
 
 }
