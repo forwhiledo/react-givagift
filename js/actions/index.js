@@ -72,6 +72,7 @@ export var INITIALIZE_RESULTS= 'INITIALIZE_RESULTS';
 
     promise: fetch('/login', fetchData).then(function(data){
 
+      console.log('logged');
        console.log(data);
        return data.json();
 
@@ -107,4 +108,30 @@ return data.json();
 
 })
 };
+}
+
+export var CALL_AMAZON_CALLS= 'CALL_AMAZON_CALLS'
+
+export function CallAmazonCalls(callArray){
+
+      return {
+        type:CALL_AMAZON_CALLS,
+        callArray:callArray
+      };
+
+}
+
+export var CALL_AMAZON='CALL_AMAZON'
+
+export function CallAmazon(query){
+        console.log('amazon was called');
+     var url='/amazon/'+query;
+     return {
+       type:CALL_AMAZON,
+       promise: fetch(url).then(function(data){
+
+         return data.json();
+
+       })
+     };
 }

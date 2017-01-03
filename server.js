@@ -41,7 +41,8 @@ app.get('/amazon/:index', function(req, res){
    searchIndex: 'All'
   //  responseGroup: 'ItemAttributes,Offers,Images'
 }, function(err, data){
-      console.log(data[0].ItemAttributes[0]);
+
+      console.log(data);
        res.json(data);
  });
 });

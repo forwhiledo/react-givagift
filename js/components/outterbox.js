@@ -5,9 +5,9 @@ var ReactDOM = require('react-dom');
 import QuestionContainer from './question.js';
 import AnswersBoxContainer from './answersbox.js'
 import {connect} from 'react-redux';
-import {NextQuestion} from '../actions/index.js'
+import {NextQuestion, CallAmazon, CallAmazonCalls} from '../actions/index.js'
  import cssStyle from '../css-variables.js';
-
+    var callArray=[];
 export class Outterbox extends React.Component {
 
         constructor(props){
@@ -17,7 +17,31 @@ export class Outterbox extends React.Component {
 
         nextQuestion(){
           console.log(this.props.currentQuestionIndex);
-            this.props.dispatch(NextQuestion(this.props.currentQuestionIndex));
+          console.log(this.props.questions);
+
+              if(this.props.currentQuestionIndex+1==this.props.questions.length){
+
+                for(var i=0; i<3; i++){
+                var dis=this;
+                  this.props.dispatch(CallAmazon('bananas')).then(function(){
+
+                          callArray.push(dis.props.questions);
+                          console.log(callArray);
+
+                  }).then(function(){
+
+                    dis.props.dispatch(CallAmazonCalls(callArray));
+                  });
+                } //end of for
+
+              } else {
+
+                 this.props.dispatch(NextQuestion(this.props.currentQuestionIndex));
+
+               }
+
+
+
         }
          render(){
 
@@ -117,8 +141,10 @@ export class Outterbox extends React.Component {
 
 
 var mapStateToProps= function(state){
+  console.log(state);
    return {
-      currentQuestionIndex:state.currentQuestionIndex
+      currentQuestionIndex:state.currentQuestionIndex,
+      questions:state.questions
    }
 }
 

@@ -1,7 +1,7 @@
 var actions = require('../actions/index');
 var resultsArray = require('../results.js');
 var questionsArray =  require('../questions.js');
-import {INITIALIZE_RESULTS, ARROW_RIGHT, NEXT_QUESTION, LOG_IN} from '../actions/index';
+import {INITIALIZE_RESULTS, ARROW_RIGHT, NEXT_QUESTION, LOG_IN, CALL_AMAZON,CALL_AMAZON_CALLS} from '../actions/index';
 import {handle} from 'redux-pack';
 import cssStyle from '../css-variables.js'
 
@@ -26,6 +26,8 @@ var reducer = function(state, action) {
     switch (action.type) {
 
       case LOG_IN:
+
+
       return handle(state, action, {
 
         start: s => ({
@@ -35,13 +37,35 @@ var reducer = function(state, action) {
              }),
         finish: s => ({ ...s, isLoading: false }),
         failure: s => ({ ...s, userError: action.payload }),
-        success: s => ({ ...s, user: action.payload }),
-
+        success: s => ({ ...s,
+          user: action.payload
+            }),
       });
 
 
+      case CALL_AMAZON:
 
 
+        console.log(action);
+
+      return handle(state, action, {
+
+        start: s => ({
+               ...s,
+               isLoading: true,
+               fooError: null
+             }),
+        finish: s => ({ ...s, isLoading: false }),
+        failure: s => ({ ...s, callError: action.payload }),
+        success: s => ({ ...s, amazonData: action.payload }),
+
+      });
+
+      case CALL_AMAZON_CALLS:
+
+           state.callArray=action.callArray
+
+           break
 
         case actions.INITIALIZE_RESULTS:
 

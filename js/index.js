@@ -23,7 +23,7 @@ import UserDashboardContainer from './components/userdashboard.js'
 import UserSideBarContainer from './components/usersidebar.js'
 import QuizInfoContainer from './components/quizinfo.js'
 
-console.log('test18');
+console.log('test36');
 
 var routes = (
     <Router history={hashHistory}>
