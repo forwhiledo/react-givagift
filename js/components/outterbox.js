@@ -5,7 +5,7 @@ var ReactDOM = require('react-dom');
 import QuestionContainer from './question.js';
 import AnswersBoxContainer from './answersbox.js'
 import {connect} from 'react-redux';
-import {NextQuestion, CallAmazon, CallAmazonCalls} from '../actions/index.js'
+import {NextQuestion, CallAmazon, CallAmazonCalls, intializeResults } from '../actions/index.js'
 import cssStyle from '../css-variables.js';
 import {push} from 'react-router-redux'
 import {hashHistory} from 'react-router'
@@ -29,15 +29,17 @@ export class Outterbox extends React.Component {
               if(this.props.currentQuestionIndex+1==this.props.questions.length){
 
                       console.log(results.length);
+
+
                 for(var i=0; i<results.length; i++){
 
                 var dis=this;
-
-                                                  //1-3
+                                                 //1-3
                   this.props.dispatch(CallAmazon(results[i])).then(function(){
 
                         console.log(dis.props.amazonData.length);
-                               ItemsArray=[];
+
+                   ItemsArray=[];
                                                  //10
                          for(i=0; i<dis.props.amazonData.length; i++){
 
@@ -64,27 +66,34 @@ export class Outterbox extends React.Component {
                               "picLink":dis.props.amazonData[i].LargeImage[0].URL[0],
                               "buyLink":dis.props.amazonData[i].DetailPageURL[0],
                             };
-
                              ItemsArray.push(ItemInfo);
-
                          }
 
-                            console.log(ItemInfo);
-                            console.log(ItemsArray);
+
+                          console.log('here is the ItemsArray:',ItemsArray);
                           console.log(dis.props);
 
                           callArray.push(ItemsArray);
-                          console.log(callArray);
+                          console.log('here is the callArray:', callArray);
 
                   }).then(function(){
 
-                    dis.props.dispatch(CallAmazonCalls(callArray));
+                    if(callArray.length==results.length){
 
-                  }).then(function(){
-                    console.log('redirecting to results!');
-                      hashHistory.push('/results');
+                        console.log('It Should End Here');
+
+                        dis.props.dispatch(CallAmazonCalls(callArray));
+                        dis.props.dispatch(intializeResults(callArray));
+
+                    }
+
                   });
+
+
                 } //end of for
+
+                    console.log('end of function');
+
 
               } else {
 

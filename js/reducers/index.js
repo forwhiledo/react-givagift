@@ -69,8 +69,9 @@ var reducer = function(state, action) {
 
         case actions.INITIALIZE_RESULTS:
 
+              console.log('here is the call' , state.callArray[0]);
             for (var i = 0; i < resultsArray.length; i++) {
-
+                  console.log('herre is teh call insiede' , state.callArray[i]);
                 state.contents[i] = resultsArray[i];
 
                   console.log( 'staaate',state.contents[i]);

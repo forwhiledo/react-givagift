@@ -5,10 +5,11 @@ require('isomorphic-fetch');
 
 export var INITIALIZE_RESULTS= 'INITIALIZE_RESULTS';
 
- export var intializeResults= function(){
+ export var intializeResults= function(resultsArray){
 
         return {
-          type:INITIALIZE_RESULTS
+          type:INITIALIZE_RESULTS,
+          resultsArray:resultsArray
         };
 
  };
