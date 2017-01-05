@@ -1,14 +1,14 @@
 var actions = require('../actions/index');
 var resultsArray = require('../results.js');
 var questionsArray =  require('../questions.js');
-import {INITIALIZE_RESULTS, ARROW_RIGHT, NEXT_QUESTION, LOG_IN, CALL_AMAZON,CALL_AMAZON_CALLS, SET_ANSWER_POINTS, SELECT_ANSWER} from '../actions/index';
+import {INITIALIZE_RESULTS, ARROW_RIGHT, NEXT_QUESTION, LOG_IN, CALL_AMAZON,CALL_AMAZON_CALLS, SET_ANSWER_POINTS, SELECT_ANSWER, SUBMIT_ANSWER_POINT} from '../actions/index';
 import {handle} from 'redux-pack';
 import cssStyle from '../css-variables.js'
 
 
 console.log(questionsArray);
 var stateDefault = {
-
+    submittedPoints:[],
     contents:[],
     currentQuestionIndex:0,
     currentQuestion:questionsArray[0],
@@ -77,6 +77,17 @@ var reducer = function(state, action) {
             state.selectedAnswerInfo= action.selectedAnswerInfo
 
             break
+
+
+    case SUBMIT_ANSWER_POINT:
+
+        var pointsArray= state.submittedPoints
+
+      pointsArray.push(action.SubmittedAnswerPoint)
+
+      state.submittedPoints=pointsArray
+
+                break
 
         case actions.INITIALIZE_RESULTS:
 

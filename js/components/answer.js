@@ -54,7 +54,9 @@ export class Answer extends React.Component {
 
 
 var mapStateToProps= function(state){
+
   console.log(state);
+
       return {
         currentQuestion:state.currentQuestion
 

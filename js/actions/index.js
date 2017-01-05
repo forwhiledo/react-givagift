@@ -156,3 +156,13 @@ export function selectAnswer(answerInfo){
           selectedAnswerInfo:answerInfo
         };
 }
+
+export var SUBMIT_ANSWER_POINT='SUBMIT_ANSWER_POINT'
+
+export function SubmitAnswerPoints(SubmittedAnswerPoint){
+
+        return {
+           type:SUBMIT_ANSWER_POINT,
+           SubmittedAnswerPoint:SubmittedAnswerPoint
+        };
+}

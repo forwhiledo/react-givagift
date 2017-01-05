@@ -5,7 +5,7 @@ var ReactDOM = require('react-dom');
 import QuestionContainer from './question.js';
 import AnswersBoxContainer from './answersbox.js'
 import {connect} from 'react-redux';
-import {NextQuestion, CallAmazon, CallAmazonCalls, intializeResults } from '../actions/index.js'
+import {NextQuestion, CallAmazon, CallAmazonCalls, intializeResults, SubmitAnswerPoints } from '../actions/index.js'
 import cssStyle from '../css-variables.js';
 import {push} from 'react-router-redux'
 import {hashHistory} from 'react-router'
@@ -20,11 +20,17 @@ export class Outterbox extends React.Component {
         constructor(props){
           super(props);
           this.nextQuestion= this.nextQuestion.bind(this);
+          
+
         }
 
+
         nextQuestion(){
+
           console.log(this.props.currentQuestionIndex);
           console.log(this.props.questions);
+          this.props.dispatch(SubmitAnswerPoints(this.props.selectedAnswerInfo.points));
+
 
               if(this.props.currentQuestionIndex+1==this.props.questions.length){
 
@@ -101,9 +107,11 @@ export class Outterbox extends React.Component {
 
                }
 
-
+            console.log('YEAAAHHOOooooOOOOOOOOOOO');
 
         }
+
+
          render(){
 
 
@@ -206,7 +214,8 @@ var mapStateToProps= function(state){
    return {
       currentQuestionIndex:state.currentQuestionIndex,
     amazonData:state.amazonData,
-    questions:state.questions
+    questions:state.questions,
+    selectedAnswerInfo:state.selectedAnswerInfo
 
    }
 }
