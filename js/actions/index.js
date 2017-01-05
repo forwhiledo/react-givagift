@@ -175,5 +175,4 @@ export function GetMax(maxpoint){
        type:GET_MAX,
        maxpoint:maxpoint
   };
-  
 }

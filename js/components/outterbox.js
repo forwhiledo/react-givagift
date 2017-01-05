@@ -11,6 +11,8 @@ import {push} from 'react-router-redux';
 import {hashHistory} from 'react-router';
 import gradeGetter from '../gradegetter.js'
 import evaluator from '../evaluator.js'
+import itemIndex from '../itemindex.js'
+
 
 var results=['lifx','starwars','bananas'];
 var callArray=[];
@@ -28,26 +30,37 @@ export class Outterbox extends React.Component {
 
         nextQuestion(){
 
+            console.log('here is the giant object', itemIndex);
+
 
           var ArrayOfPoints=this.props.answerPoints;
           var maxpoint= Math.max(...ArrayOfPoints);
 
           this.props.dispatch(SubmitAnswerPoints(this.props.selectedAnswerInfo.points));
           this.props.dispatch(GetMax(maxpoint));
-
+            console.log(itemIndex.class.length);
 
               if(this.props.currentQuestionIndex+1==this.props.questions.length){
 
-                console.log(results.length);
+
 
               var grade= gradeGetter(this.props.submittedPoints, this.props.maxPoints);
+              var ClassN= evaluator(100, grade , itemIndex.class.length);
 
-              var ClassN= evaluator(100, grade , 4);
-              var SubClassN= evaluator( ClassN.range , grade,6 );
-              var ItemN= evaluator( SubClassN.range , grade ,30);
+              console.log('class index',ClassN.classIndex);
+              var SubClassNLength= itemIndex.class[ClassN.classIndex].subclass.length;
+              console.log('here is nect class sub length', SubClassNLength);
+              var SubClassN= evaluator( ClassN.range , grade , SubClassNLength);
+              var ItemNLength= itemIndex.class[SubClassN.classIndex].subclass.length;
+              var ItemN= evaluator( SubClassN.range , grade , ItemNLength);
 
-              console.log('here are the class index', ClassN, SubClassN , ItemN);
+              console.log('here are the tree data!!');
 
+              console.log(ClassN.classIndex);
+              console.log(ItemN.classIndex);
+              console.log(SubClassN.classIndex);
+
+              console.log('your item is' ,itemIndex.class[ClassN.classIndex].subclass[SubClassN.classIndex].items[ItemN.classIndex]);
 
                 for(var i=0; i<results.length; i++){
 
@@ -55,7 +68,7 @@ export class Outterbox extends React.Component {
                                                  //1-3
                   this.props.dispatch(CallAmazon(results[i])).then(function(){
 
-                        console.log(dis.props.amazonData.length);
+
 
                    ItemsArray=[];
                                                  //10
@@ -65,16 +78,13 @@ export class Outterbox extends React.Component {
 
                                  if( typeof dis.props.amazonData[i].OfferSummary[0].LowestNewPrice == 'undefined') {
 
-                                  console.log(dis.props.amazonData[i].OfferSummary[0].LowestUsedPrice[0].FormattedPrice[0]);
-                                console.log( 'its undefined');
 
                                   price=dis.props.amazonData[i].OfferSummary[0].LowestUsedPrice[0].FormattedPrice[0];
 
                                 } else {
 
                                   price= dis.props.amazonData[i].OfferSummary[0].LowestNewPrice[0].FormattedPrice[0];
-                                  console.log('it has');
-                                    console.log(price);
+
                                 }
 
 
@@ -88,11 +98,10 @@ export class Outterbox extends React.Component {
                          }
 
 
-                          console.log('here is the ItemsArray:',ItemsArray);
-                          console.log(dis.props);
+
 
                           callArray.push(ItemsArray);
-                          console.log('here is the callArray:', callArray);
+
 
                   }).then(function(){
 
@@ -110,7 +119,7 @@ export class Outterbox extends React.Component {
 
                 } //end of for
 
-                    console.log('end of function');
+
 
 
               } else {
@@ -119,7 +128,7 @@ export class Outterbox extends React.Component {
 
                }
 
-            console.log('YEAAAHHOOooooOOOOOOOOOOO');
+
 
         }
 

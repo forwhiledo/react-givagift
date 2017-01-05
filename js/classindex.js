@@ -41,6 +41,7 @@ for(var i=0 ; i< classLength ; i++ ){
             classIndex:classIndex,
             range:IndexRange
        };
+
        break
    }
 }

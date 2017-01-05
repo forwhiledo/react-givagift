@@ -29,6 +29,7 @@ for(var i=0 ; i< classLength ; i++ ){
 
        var classIndex= i;
        var IndexRange= IndexToArray[i];
+
        var indexObject= {
             classIndex:classIndex,
             range:IndexRange
