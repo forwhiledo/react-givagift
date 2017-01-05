@@ -14,9 +14,12 @@ export class AnswersBox extends React.Component {
 
     var nOfAnswers=this.props.currentQuestion.listOfAnswers.length;
     console.log(getAnswerPoints(10,nOfAnswers,100));
+
     var answerPoints= getAnswerPoints(10,nOfAnswers,100);
+
          console.log(answerPoints);
     this.props.dispatch(setAnswerPoints(answerPoints));
+    
 
   }
 

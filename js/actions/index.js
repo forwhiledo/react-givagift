@@ -166,3 +166,14 @@ export function SubmitAnswerPoints(SubmittedAnswerPoint){
            SubmittedAnswerPoint:SubmittedAnswerPoint
         };
 }
+
+export var GET_MAX='GET_MAX'
+
+export function GetMax(maxpoint){
+
+  return {
+       type:GET_MAX,
+       maxpoint:maxpoint
+  };
+  
+}
