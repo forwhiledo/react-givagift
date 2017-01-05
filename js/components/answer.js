@@ -37,7 +37,7 @@ export class Answer extends React.Component {
 
     return(
       <div className='answersbox' style={answerButton}>
-       <p  style={{marginLeft:'20px'}} onClick={this.selectedAnswer} > {this.props.letter} . {this.props.answer} </p>
+       <p  style={{marginLeft:'20px'}}s> {this.props.letter} . {this.props.answer} </p>
        </div>
     )
   }

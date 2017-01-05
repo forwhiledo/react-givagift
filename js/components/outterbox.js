@@ -84,7 +84,7 @@ export class Outterbox extends React.Component {
 
                         dis.props.dispatch(CallAmazonCalls(callArray));
                         dis.props.dispatch(intializeResults(callArray));
-
+                        hashHistory.push('/results');
                     }
 
                   });

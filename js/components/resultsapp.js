@@ -14,9 +14,6 @@ export class ResultsApp extends React.Component {
 
               super(props);
 
-
-              this.props.dispatch( intializeResults());
-
             }
 
            render(){

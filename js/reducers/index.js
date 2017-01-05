@@ -1,7 +1,7 @@
 var actions = require('../actions/index');
 var resultsArray = require('../results.js');
 var questionsArray =  require('../questions.js');
-import {INITIALIZE_RESULTS, ARROW_RIGHT, NEXT_QUESTION, LOG_IN, CALL_AMAZON,CALL_AMAZON_CALLS} from '../actions/index';
+import {INITIALIZE_RESULTS, ARROW_RIGHT, NEXT_QUESTION, LOG_IN, CALL_AMAZON,CALL_AMAZON_CALLS, SET_ANSWER_POINTS, SELECT_ANSWER} from '../actions/index';
 import {handle} from 'redux-pack';
 import cssStyle from '../css-variables.js'
 
@@ -9,7 +9,7 @@ import cssStyle from '../css-variables.js'
 console.log(questionsArray);
 var stateDefault = {
 
-    contents: resultsArray,
+    contents:[],
     currentQuestionIndex:0,
     currentQuestion:questionsArray[0],
     questions: questionsArray,
@@ -42,6 +42,11 @@ var reducer = function(state, action) {
             }),
       });
 
+      case SET_ANSWER_POINTS:
+
+          state.answerPoints=action.answerPoints
+
+          break
 
       case CALL_AMAZON:
 
@@ -67,12 +72,16 @@ var reducer = function(state, action) {
 
            break
 
+       case SELECT_ANSWER:
+
+            state.selectedAnswerPoints= action.points
+
         case actions.INITIALIZE_RESULTS:
 
-              console.log('here is the call' , state.callArray[0]);
-            for (var i = 0; i < resultsArray.length; i++) {
+              console.log('here is the call', action.resultsArray);
+            for (var i = 0; i < action.resultsArray.length; i++) {
                   console.log('herre is teh call insiede' , state.callArray[i]);
-                state.contents[i] = resultsArray[i];
+                state.contents[i] = action.resultsArray[i];
 
                   console.log( 'staaate',state.contents[i]);
                 if(state.contents[i].length< 5){

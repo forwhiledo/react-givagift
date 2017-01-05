@@ -136,3 +136,23 @@ export function CallAmazon(query){
        })
      };
 }
+
+export var SET_ANSWER_POINTS='SET_ANSWER_POINTS'
+
+export function setAnswerPoints(answerPoints){
+
+        return {
+           type:SET_ANSWER_POINTS,
+           answerPoints:answerPoints
+        };
+}
+
+export var SELECT_ANSWER='SELECT_ANSWER'
+
+export function selectAnswer(points){
+
+        return {
+           type:SET_ANSWER_POINTS,
+          points:points
+        };
+}
