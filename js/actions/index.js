@@ -149,10 +149,10 @@ export function setAnswerPoints(answerPoints){
 
 export var SELECT_ANSWER='SELECT_ANSWER'
 
-export function selectAnswer(points){
+export function selectAnswer(answerInfo){
 
         return {
-           type:SET_ANSWER_POINTS,
-          points:points
+           type:SELECT_ANSWER,
+          selectedAnswerInfo:answerInfo
         };
 }

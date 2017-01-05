@@ -74,7 +74,9 @@ var reducer = function(state, action) {
 
        case SELECT_ANSWER:
 
-            state.selectedAnswerPoints= action.points
+            state.selectedAnswerInfo= action.selectedAnswerInfo
+
+            break
 
         case actions.INITIALIZE_RESULTS:
 

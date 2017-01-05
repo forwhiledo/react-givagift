@@ -4,16 +4,24 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 import {connect} from 'react-redux';
 import cssStyle from '../css-variables.js'
-
+import {selectAnswer} from '../actions/index.js'
 
 export class Answer extends React.Component {
   constructor(props){
     super(props);
       this.selectedAnswer= this.selectedAnswer.bind(this);
+
   }
 
   selectedAnswer(){
-      console.log('answer number was'+ this.props.answerId +'from question'+ this.props.questionId);
+
+       var answerInfo= {
+              answerN:this.props.answerId,
+              questionN:this.props.questionId,
+              points:this.props.points
+       };
+
+     this.props.dispatch(selectAnswer(answerInfo));
 
   }
 
@@ -36,8 +44,8 @@ export class Answer extends React.Component {
     };
 
     return(
-      <div className='answersbox' style={answerButton}>
-       <p  style={{marginLeft:'20px'}}s> {this.props.letter} . {this.props.answer} </p>
+      <div className='answersbox' onClick={this.selectedAnswer} style={answerButton}>
+       <p  style={{marginLeft:'20px'}}> {this.props.letter} . {this.props.answer} </p>
        </div>
     )
   }
@@ -46,8 +54,10 @@ export class Answer extends React.Component {
 
 
 var mapStateToProps= function(state){
+  console.log(state);
       return {
         currentQuestion:state.currentQuestion
+
       }
 }
 
