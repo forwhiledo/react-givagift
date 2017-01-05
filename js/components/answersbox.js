@@ -11,7 +11,6 @@ export class AnswersBox extends React.Component {
   constructor(props){
     super(props);
 
-
     var nOfAnswers=this.props.currentQuestion.listOfAnswers.length;
     console.log(getAnswerPoints(10,nOfAnswers,100));
 
@@ -19,7 +18,6 @@ export class AnswersBox extends React.Component {
 
          console.log(answerPoints);
     this.props.dispatch(setAnswerPoints(answerPoints));
-    
 
   }
 

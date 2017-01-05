@@ -3,12 +3,14 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 import QuestionContainer from './question.js';
-import AnswersBoxContainer from './answersbox.js'
+import AnswersBoxContainer from './answersbox.js';
 import {connect} from 'react-redux';
 import {NextQuestion, CallAmazon, CallAmazonCalls, intializeResults, SubmitAnswerPoints, GetMax } from '../actions/index.js'
 import cssStyle from '../css-variables.js';
-import {push} from 'react-router-redux'
-import {hashHistory} from 'react-router'
+import {push} from 'react-router-redux';
+import {hashHistory} from 'react-router';
+import gradeGetter from '../gradegetter.js'
+import evaluator from '../evaluator.js'
 
 var results=['lifx','starwars','bananas'];
 var callArray=[];
@@ -29,13 +31,22 @@ export class Outterbox extends React.Component {
 
           var ArrayOfPoints=this.props.answerPoints;
           var maxpoint= Math.max(...ArrayOfPoints);
-        
+
           this.props.dispatch(SubmitAnswerPoints(this.props.selectedAnswerInfo.points));
           this.props.dispatch(GetMax(maxpoint));
 
+
               if(this.props.currentQuestionIndex+1==this.props.questions.length){
 
-                      console.log(results.length);
+                console.log(results.length);
+
+              var grade= gradeGetter(this.props.submittedPoints, this.props.maxPoints);
+
+              var ClassN= evaluator(100, grade , 4);
+              var SubClassN= evaluator( ClassN.range , grade,6 );
+              var ItemN= evaluator( SubClassN.range , grade ,30);
+
+              console.log('here are the class index', ClassN, SubClassN , ItemN);
 
 
                 for(var i=0; i<results.length; i++){
@@ -217,7 +228,9 @@ var mapStateToProps= function(state){
     amazonData:state.amazonData,
     questions:state.questions,
     selectedAnswerInfo:state.selectedAnswerInfo,
-    answerPoints:state.answerPoints
+    answerPoints:state.answerPoints,
+    submittedPoints:state.submittedPoints,
+    maxPoints:state.maxPoints
 
    }
 }
