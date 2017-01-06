@@ -5,7 +5,7 @@ var ReactDOM = require('react-dom');
 import QuestionContainer from './question.js';
 import AnswersBoxContainer from './answersbox.js';
 import {connect} from 'react-redux';
-import {NextQuestion, CallAmazon, CallAmazonCalls, intializeResults, SubmitAnswerPoints, GetMax } from '../actions/index.js'
+import {NextQuestion, CallAmazon, CallAmazonCalls, intializeResults, SubmitAnswerPoints, GetMax , SetQuery} from '../actions/index.js'
 import cssStyle from '../css-variables.js';
 import {push} from 'react-router-redux';
 import {hashHistory} from 'react-router';
@@ -40,34 +40,33 @@ export class Outterbox extends React.Component {
           this.props.dispatch(GetMax(maxpoint));
             console.log(itemIndex.class.length);
 
+
               if(this.props.currentQuestionIndex+1==this.props.questions.length){
 
 
 
               var grade= gradeGetter(this.props.submittedPoints, this.props.maxPoints);
               var ClassN= evaluator(100, grade , itemIndex.class.length);
-
-              console.log('class index',ClassN.classIndex);
               var SubClassNLength= itemIndex.class[ClassN.classIndex].subclass.length;
-              console.log('here is nect class sub length', SubClassNLength);
               var SubClassN= evaluator( ClassN.range , grade , SubClassNLength);
               var ItemNLength= itemIndex.class[SubClassN.classIndex].subclass.length;
               var ItemN= evaluator( SubClassN.range , grade , ItemNLength);
 
-              console.log('here are the tree data!!');
 
-              console.log(ClassN.classIndex);
-              console.log(ItemN.classIndex);
-              console.log(SubClassN.classIndex);
 
-              console.log('your item is' ,itemIndex.class[ClassN.classIndex].subclass[SubClassN.classIndex].items[ItemN.classIndex]);
 
-                for(var i=0; i<results.length; i++){
+                var queryset = itemIndex.class[ClassN.classIndex].subclass[SubClassN.classIndex].items[ItemN.classIndex];
+
+                    console.log('here is your query set:', queryset);
+
+                this.props.dispatch(SetQuery(queryset));
+
+
+                for(var i=0; i<queryset.length; i++){
 
                 var dis=this;
                                                  //1-3
-                  this.props.dispatch(CallAmazon(results[i])).then(function(){
-
+                this.props.dispatch(CallAmazon(queryset[i])).then(function(){
 
 
                    ItemsArray=[];
@@ -97,21 +96,19 @@ export class Outterbox extends React.Component {
                              ItemsArray.push(ItemInfo);
                          }
 
-
-
-
                           callArray.push(ItemsArray);
 
 
                   }).then(function(){
 
-                    if(callArray.length==results.length){
+                    if(callArray.length==queryset.length){
 
                         console.log('It Should End Here');
 
                         dis.props.dispatch(CallAmazonCalls(callArray));
                         dis.props.dispatch(intializeResults(callArray));
                         hashHistory.push('/results');
+
                     }
 
                   });
@@ -239,7 +236,8 @@ var mapStateToProps= function(state){
     selectedAnswerInfo:state.selectedAnswerInfo,
     answerPoints:state.answerPoints,
     submittedPoints:state.submittedPoints,
-    maxPoints:state.maxPoints
+    maxPoints:state.maxPoints,
+    queries:state.queries
 
    }
 }

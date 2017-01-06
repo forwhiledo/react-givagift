@@ -13,6 +13,4 @@ function gradeGetter(pointsArray, maxPointsArray){
 
 }
 
-
-
 export default gradeGetter

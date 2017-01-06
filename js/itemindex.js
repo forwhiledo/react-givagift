@@ -4,15 +4,16 @@ var itemIndex={
       "subclass": [
         {
           "items": [
-            "knife",
-            "blender",
-            "apron"
+            ["blenders" , "toasters", "knives"],
+            ["toasters" , "knives" , "aprons"],
+            ["knives", "aprons" , "frying pans"]
           ]
         },
         {
           "items": [
-            "chromecast",
-            "lifx"
+            ["tv accessories", "lifx", "home decor"],
+            ["tv monitor", "lifx" , "lamp"],
+            ["home decor", "rug", "wallpapers"]
           ]
         }
       ]
@@ -21,15 +22,15 @@ var itemIndex={
       "subclass": [
         {
           "items": [
-            "basketball",
-            "seahawks",
-            "baseball"
+            ["bascket ball", "baseball" , "soccer"],
+            ["seahawks" , "football decorations" , "tennis shoes"],
+             ["addidas", "nike" , "baseball caps"]
           ]
         },
         {
           "items": [
-            "backpack",
-            "waterbottle"
+            ["outdoor backpack", "water bottle" , "jumper jacket"],
+           ["water bottle", "outdoor backpack", "outdoor shoes"]
           ]
         }
       ]

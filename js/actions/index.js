@@ -176,3 +176,15 @@ export function GetMax(maxpoint){
        maxpoint:maxpoint
   };
 }
+
+export var SET_QUERY='SET_QUERY'
+
+export function SetQuery(queries){
+
+
+  return {
+       type:SET_QUERY,
+       queries:queries
+  };
+
+}
