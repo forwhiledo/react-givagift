@@ -6,6 +6,9 @@ import {connect} from 'react-redux';
 import cssStyle from '../css-variables.js'
 import {selectAnswer} from '../actions/index.js'
 
+
+
+
 export class Answer extends React.Component {
   constructor(props){
     super(props);
@@ -15,10 +18,12 @@ export class Answer extends React.Component {
 
   selectedAnswer(){
 
+
        var answerInfo= {
+
               answerN:this.props.answerId,
               questionN:this.props.questionId,
-              points:this.props.points
+              points:this.props.points,
        };
 
      this.props.dispatch(selectAnswer(answerInfo));
@@ -28,25 +33,26 @@ export class Answer extends React.Component {
 
   render(){
 
-    var answerButton= {
-      fontSize:'20px',
-      width: "500px",
-      height:"40px",
-      display:'block',
-      backgroundColor:cssStyle.white,
-      border: "2px solid #FF6D6D",
-      borderRadius:"5px",
-      fontFamily:cssStyle.baloo,
-      color:cssStyle.dark_grey,
-      marginLeft:'auto',
-      marginRight:'auto',
-      marginTop:'30px'
-    };
+var selectedCSS='answerButton';
+
+      if(this.props.answerSelected===true){
+        if( this.props.answerId == this.props.selectedAnswerInfo.answerN && this.props.questionId == this.props.selectedAnswerInfo.questionN ){
+              selectedCSS='selectedAnswerButton';
+        } else {
+           selectedCSS='answerButton';
+        }
+      }
 
     return(
-      <div className='answersbox' onClick={this.selectedAnswer} style={answerButton}>
+
+      <div onClick={this.selectedAnswer}  className={selectedCSS}>
+
+
        <p  style={{marginLeft:'20px'}}> {this.props.letter} . {this.props.answer} </p>
+
+
        </div>
+
     )
   }
 }
@@ -58,7 +64,9 @@ var mapStateToProps= function(state){
   console.log(state);
 
       return {
-        currentQuestion:state.currentQuestion
+        currentQuestion:state.currentQuestion,
+        selectedAnswerInfo:state.selectedAnswerInfo,
+        answerSelected:state.answerSelected
 
       }
 }

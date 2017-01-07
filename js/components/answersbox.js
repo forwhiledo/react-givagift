@@ -33,12 +33,11 @@ export class AnswersBox extends React.Component {
 
       if(this.props.answerPoints){
 
-        console.log('this time it went ');
-        console.log(this.props.answerPoints);
+
 
         for( var i=0; i< this.props.currentQuestion.listOfAnswers.length; i++){
 
-            AnswerList.push( <Answer answerId={i} points={this.props.answerPoints[i]} questionId={this.props.currentQuestionIndex} letter={alternatives[i]} answer={this.props.currentQuestion.listOfAnswers[i].Answer}/>);
+            AnswerList.push( <Answer  answerId={i} points={this.props.answerPoints[i]} questionId={this.props.currentQuestionIndex} letter={alternatives[i]} answer={this.props.currentQuestion.listOfAnswers[i].Answer}/>);
 
         }
 
@@ -58,8 +57,6 @@ export class AnswersBox extends React.Component {
     )
   }
 }
-
-
 
 var mapStateToProps= function(state){
 

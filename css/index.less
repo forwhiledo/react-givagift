@@ -1,3 +1,23 @@
+@light-black: #262626;
+@dark-grey:#333333;
+@white: #f4f2fc;
+@green: #4CAF50;
+@pink: #FF6D6D;
+@orange:#ff7733;
+@green: #4CAF50;
+@light-green: #66ffb3;
+@baloo: 'Baloo Da', cursive;
+@font1:'Fredoka One', cursive;
+@font2: 'Droid Sans', sans-serif;
+@font3: 'Raleway', sans-serif;
+@font4: 'Work Sans', sans-serif;
+@font5: 'Eczar', serif;
+@font6: 'Dosis', sans-serif;
+@font7: 'Hind', sans-serif;
+@font8: 'Cabin', sans-serif;
+@font9: 'Nunito', sans-serif;
+@blue: #7599d1;
+
 
 .outtercontainer {
  border:1px solid #bccaca;
@@ -127,4 +147,25 @@ margin-right: auto;
    width: 600px;
    margin-left: auto;
   margin-right: auto;
+}
+
+.answerButton {
+  font-size:20px;
+  width: 500px;
+  height:40px;
+  display:block;
+  background-color: @white;
+  border:2px solid #FF6D6D;
+  border-radius:5px;
+  font-family:@baloo;
+  color:@dark-grey;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:30px
+}
+
+.selectedAnswerButton {
+  .answerButton;
+    border:5px solid @pink;
+    background-color: @white;
 }

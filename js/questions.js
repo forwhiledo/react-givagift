@@ -18,6 +18,10 @@ var questionsArray=[
          {
             "Answer":"4",
             "answerID":3
+         },
+        {
+            "Answer":"null",
+            "answerID":3
          }
       ]
    },
@@ -39,6 +43,10 @@ var questionsArray=[
          {
             "Answer":"yellow",
             "answerID":3
+         },
+       {
+            "Answer":"brown",
+            "answerID":4
          }
       ]
    },
@@ -60,6 +68,10 @@ var questionsArray=[
          {
             "Answer":"cat",
             "answerID":3
+         },
+{
+            "Answer":"Meercat",
+            "answerID":4
          }
       ]
    },
@@ -79,6 +91,10 @@ var questionsArray=[
          {
             "Answer":"birds",
             "answerID":3
+         },
+{
+            "Answer":"bat",
+            "answerID":4
          }
       ]
    }

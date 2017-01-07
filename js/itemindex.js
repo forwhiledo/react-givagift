@@ -6,7 +6,7 @@ var itemIndex={
           "items": [
             ["blenders" , "toasters", "knives"],
             ["toasters" , "knives" , "aprons"],
-            ["knives", "aprons" , "frying pans"]
+            ["knives", "aprons" , "pans"]
           ]
         },
         {

@@ -8,6 +8,8 @@ import cssStyle from '../css-variables.js'
 
 console.log(questionsArray);
 var stateDefault = {
+    selectedAnswerCss:'answerButton',
+    answerSelected:false,
     maxPoints:[],
     submittedPoints:[],
     contents:[],
@@ -62,7 +64,9 @@ var reducer = function(state, action) {
                fooError: null
              }),
         finish: s => ({ ...s, isLoading: false }),
+
         failure: s => ({ ...s, callError: action.payload }),
+        
         success: s => ({ ...s, amazonData: action.payload }),
 
       });
@@ -76,7 +80,7 @@ var reducer = function(state, action) {
        case SELECT_ANSWER:
 
             state.selectedAnswerInfo= action.selectedAnswerInfo
-
+            state.answerSelected=true
             break
 
 
