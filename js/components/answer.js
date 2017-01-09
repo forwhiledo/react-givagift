@@ -45,7 +45,7 @@ var selectedCSS='answerButton';
 
     return(
 
-      <div onClick={this.selectedAnswer}  className={selectedCSS}>
+      <div onClick={this.selectedAnswer}  className={ selectedCSS + ' slidefromleft'}>
 
 
        <p  style={{marginLeft:'20px'}}> {this.props.letter} . {this.props.answer} </p>

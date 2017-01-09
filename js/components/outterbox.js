@@ -14,16 +14,20 @@ import evaluator from '../evaluator.js'
 import itemIndex from '../itemindex.js'
 
 
+
 var results=['lifx','starwars','bananas'];
 var callArray=[];
 var ItemInfo;
 var ItemsArray;
+var NextButton="";
 
 export class Outterbox extends React.Component {
 
         constructor(props){
           super(props);
           this.nextQuestion= this.nextQuestion.bind(this);
+
+
 
         }
 
@@ -134,7 +138,6 @@ export class Outterbox extends React.Component {
 
 
 
-
                var sign_in= {
 
                fontFamily:cssStyle.font4,
@@ -203,6 +206,18 @@ export class Outterbox extends React.Component {
                    marginBottom:'30px'
                };
 
+               if(this.props.answerSelected===true && this.props.selectedAnswerInfo.questionN == this.props.currentQuestionIndex  ){
+                      NextButton= (
+
+                             <button className='buttonStyle fadeinfast' onClick={this.nextQuestion}>next</button>
+
+                      );
+               } else {
+                 console.log('its fake mate');
+                   NextButton=""
+               }
+
+
 
            return(
 
@@ -218,7 +233,10 @@ export class Outterbox extends React.Component {
 
                      <QuestionContainer/>
                      <AnswersBoxContainer/>
-                     <button style={buttonStyle} onClick={this.nextQuestion}>next</button>
+
+
+                    <div>{NextButton}</div>
+
 
                  </div>
                  </div>
@@ -237,7 +255,8 @@ var mapStateToProps= function(state){
     answerPoints:state.answerPoints,
     submittedPoints:state.submittedPoints,
     maxPoints:state.maxPoints,
-    queries:state.queries
+    queries:state.queries,
+    answerSelected:state.answerSelected
 
    }
 }

@@ -82,7 +82,7 @@ export class QuizInfo extends React.Component {
 
     return(
 
-      <div style={sign_in}>
+      <div className='sign_in fadeinslow'>
 
       <div style={{
       marginTop:'30px',

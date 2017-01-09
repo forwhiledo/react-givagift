@@ -23,12 +23,7 @@ export class App extends React.Component{
 
     }
 
-       var headingStyle={
-       maxWidth: "100%",
-       height: "90px",
-       backgroundColor:orange,
-       paddingTop:'10px'
-       };
+
 
        var h1Style={
        fontFamily:cssStyle.baloo,
@@ -53,7 +48,7 @@ export class App extends React.Component{
 
     return(
 
-      <div style={headingStyle}>
+      <div className='headingStyle'>
 
         <h1 style={h1Style}>GIVA<span style={h1White}>GIFT</span> <i className="fa fa-gift" aria-hidden="true"></i></h1>
          <div style={menuDiv}></div>

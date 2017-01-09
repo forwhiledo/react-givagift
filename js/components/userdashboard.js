@@ -5,12 +5,17 @@ var ReactDOM = require('react-dom');
 var router = require('react-router');
 var Router = router.Router;
 var Route = router.Route;
-var hashHistory = router.hashHistory;
 var IndexRoute = router.IndexRoute;
+import {push} from 'react-router-redux';
+import {hashHistory} from 'react-router';
 
 import {connect} from 'react-redux';
 import UserContentContainer from './usercontent.js'
 import UserSideBarContainer from './usersidebar.js'
+var content="";
+var sidebar="";
+
+
 export class UserDashboard extends React.Component{
 
   constructor(props){
@@ -20,15 +25,35 @@ export class UserDashboard extends React.Component{
 
   render(){
 
-    console.log('here is the state');
-    console.log(this.props.user.username);
-    return (
+    if(!this.props.user){
+        console.log('NOOOO USSSSEEER');
+      hashHistory.push('/signup-login');
+    } else {
 
-        <div>
+
+     content =(
+            <div>
+            <UserContentContainer/>
+            </div>
+      )
+
+      sidebar= (
         <div style={{float:'left'}}>
         <UserSideBarContainer/>
         </div>
-        <UserContentContainer/>
+      )
+
+    }
+
+    return (
+
+
+        <div className="fadeinslow">
+
+        {sidebar}
+
+         {content}
+
         </div>
 
     );
@@ -37,6 +62,7 @@ export class UserDashboard extends React.Component{
 
 
 var mapStateToProps= function(state){
+
  console.log('state is being called');
  console.log(state);
 

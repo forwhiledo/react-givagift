@@ -18,20 +18,21 @@ export class UserSideBar extends React.Component{
     console.log(this.props.user.username);
 
     return (
-      <div>
+      <div className='user-side-bar'>
        <div style= {{width:'220px', height:'800px',backgroundColor:cssStyle.white, listStyle:'none', borderRight:'3px solid grey', position:'absolute'}} >
-         <ul style={{fontSize:'25px', fontFamily:cssStyle.font2, listStyle:'none'}}>
+         <ul style={{fontSize:'25px', fontFamily:cssStyle.font2, listStyle:'none', paddingLeft:'0'}}>
          <hr/>
-         <br/>
-         <li> Friends</li>
-          <br/>
+
+         <li className='darkli'> Friends </li>
+
          <li> Birthdays</li>
-          <br/>
-         <li> Events</li>
-          <br/>
-         <li> Profile</li>
-          <br/>
-         <li> Setting</li>
+
+         <li className='darkli'> Events</li>
+
+         <li > Profile</li>
+
+         <li className='darkli'> Setting</li>
+         
          </ul>
          </div>
 

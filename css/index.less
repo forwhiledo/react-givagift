@@ -3,8 +3,10 @@
 @white: #f4f2fc;
 @green: #4CAF50;
 @pink: #FF6D6D;
+@light-grey:#d9d9d9;
 @orange:#ff7733;
 @green: #4CAF50;
+@light-blue:#ccccff;
 @light-green: #66ffb3;
 @baloo: 'Baloo Da', cursive;
 @font1:'Fredoka One', cursive;
@@ -17,6 +19,92 @@
 @font8: 'Cabin', sans-serif;
 @font9: 'Nunito', sans-serif;
 @blue: #7599d1;
+
+.fadeinfast {
+  animation: fadein 0.3s ease-in forwards;
+}
+
+.fadeinslow {
+  animation: fadein 1s ease-in forwards;
+}
+
+@keyframes fadein {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+
+.drop{
+  animation: drop 0.5s ease-in forwards;
+}
+
+@keyframes drop {
+    0%{
+      opacity: 0;
+      transform:translate(0px,-100px);
+    }
+
+    70%{
+      opacity: 0.5;
+      transform:translate(0px,50px)
+    }
+  100%{
+    opacity: 1;
+    transform:translate(0px,0px);
+  }
+}
+
+.slidefromleft {
+  animation: slidefromleft 0.5s ease-in forwards;
+}
+
+@keyframes slidefromleft {
+    0% {
+      opacity: 0;
+      transform:translate(-300px,0px)
+    }
+    100% {
+      opacity: 1;
+      transform:translate(0px,0px);
+    }
+}
+
+
+
+
+
+.headingStyle {
+  maxWidth:100%;
+  height:90px;
+  background-color:@orange;
+  padding-top:10px
+}
+
+.welcome_message {
+  margin-top:120px;
+   width: 700px;
+   margin-left: auto;
+   margin-right: auto;
+};
+
+.sign_in {
+
+font-family:@font4;
+font-size:16px;
+background-color:@white;
+width:600px;
+height:450px;
+border:3px solid @pink;
+border-radius:2pc;
+color:@light-black;
+margin-top:50px;
+margin-left:auto;
+margin-right:auto
+};
+
 
 
 .outtercontainer {
@@ -154,7 +242,7 @@ margin-right: auto;
   width: 500px;
   height:40px;
   display:block;
-  background-color: @white;
+  background-color: @light-blue;
   border:2px solid #FF6D6D;
   border-radius:5px;
   font-family:@baloo;
@@ -167,5 +255,58 @@ margin-right: auto;
 .selectedAnswerButton {
   .answerButton;
     border:5px solid @pink;
-    background-color: @white;
+    background-color: @light-green;
+
+}
+
+.nextbutton-enter {
+  opacity:0.01;
+}
+
+
+.nextbutton-enter.nextbutton-enter-active {
+  opacity: 1;
+ transition: opacity 500ms ease-in;
+}
+
+.nextbutton-leave {
+  opacity: 1;
+}
+
+.nextbutton-leave.nextbutton-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+.buttonStyle {
+  font-size:17px;
+  width: 200px;
+  height:40px;
+  display:block;
+  background-color: @green;
+  border: 0px;
+  border-radius:5px;
+  font-family:@baloo;
+  color:@white;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:30px
+}
+
+
+// user side bar
+
+.user-side-bar li{
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.darkli {
+
+  background-color:@light-blue;
+  font-family:@font4;
+   border-style: solid;
+   border-color: @light-grey;
+  border-width:  1px 0px 1px 0px;
 }

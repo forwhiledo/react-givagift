@@ -11,12 +11,7 @@ var Link = router.Link;
 
 var Welcome= function(){
 
-        var welcome_message= {
-          marginTop:'120px',
-           width: "700px",
-           marginLeft:'auto',
-           marginRight:'auto'
-        };
+            var fadeStyle='fadeinslow ';
 
           var  h1Style= {
              fontSize:'50px',
@@ -49,10 +44,11 @@ var Welcome= function(){
             marginLeft:'auto',
             marginRight:'auto'
           };
+
 console.log(cssStyle.centralize);
 
   return(
-    <div  style={welcome_message}>
+    <div  className={ 'welcome_message ' + fadeStyle } >
 
       <h1 style={h1Style}>Welcome to <span>GIVA<span>GIFT</span></span><i className="fa fa-gift"></i></h1>
 
@@ -60,7 +56,7 @@ console.log(cssStyle.centralize);
 
         <div style={buttonDiv}>
              <Link to={'/signup-login'}>
-          <button style={buttonStyle}> ENTER </button>
+          <button style={buttonStyle} > ENTER </button>
               </Link>
         </div>
 

@@ -37,8 +37,8 @@ export class AnswersBox extends React.Component {
 
         for( var i=0; i< this.props.currentQuestion.listOfAnswers.length; i++){
 
-            AnswerList.push( <Answer  answerId={i} points={this.props.answerPoints[i]} questionId={this.props.currentQuestionIndex} letter={alternatives[i]} answer={this.props.currentQuestion.listOfAnswers[i].Answer}/>);
-
+         AnswerList.push( <Answer  answerId={i} points={this.props.answerPoints[i]} questionId={this.props.currentQuestionIndex} letter={alternatives[i]} answer={this.props.currentQuestion.listOfAnswers[i].Answer}/>)
+          
         }
 
       } else {

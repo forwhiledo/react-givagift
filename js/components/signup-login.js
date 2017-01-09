@@ -55,20 +55,7 @@ export class SignupLogin extends React.Component {
 
       render(){
 
-          var sign_in= {
 
-          fontFamily:cssStyle.font4,
-          fontSize: "16px",
-          backgroundColor: cssStyle.white,
-          width: "600px",
-          height:"550px",
-          border:"3px solid"+cssStyle.pink,
-          borderRadius:'2pc',
-          color:cssStyle.light_black,
-          marginTop:"50px",
-          marginLeft:"auto",
-          marginRight:"auto"
-          };
 
           var  h1Style= {
           fontSize:'50px',
@@ -106,7 +93,7 @@ export class SignupLogin extends React.Component {
 
         return(
 
-    <div style={sign_in}>
+    <div className="sign_in drop fadeinslow">
 
     <div style={{
     marginTop:'30px',
